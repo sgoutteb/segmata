@@ -5,7 +5,7 @@ Segmata is a program that allows users to optimize segmentation from Khartes, ht
 For rendering layers it uses: vesuvius-render from https://github.com/jrudolph/vesuvius-gui
 It is written in Python.
 
-The main emphasis of Segmata is to automatically performa modifications on .obj file in order to improve the segmentation in terms of:
+The main emphasis of Segmata is to automatically perform modifications on .obj file in order to improve the segmentation in terms of:
 - Visual rendereing of layers
 - Inference result on segment (in a future step)
 
