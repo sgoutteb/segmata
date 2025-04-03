@@ -6,7 +6,7 @@ For rendering layers it uses: vesuvius-render from https://github.com/jrudolph/v
 It is written in Python.
 
 The main emphasis of Segmata is to automatically perform modifications on .obj file in order to improve the segmentation in terms of:
-- Visual rendereing of layers
+- Visual rendering of layers
 - Inference result on segment (in a future step)
 
 The .obj modifications are done on individual vertex displacements along normals (loop over all vertex). This displacement is limited to XX pixels.
@@ -14,10 +14,13 @@ The cost function for deciding is the modified point is better can be based on:
 - Maximize bright pixels count (the papyrus layer is brighter than "holes")
 - Minimize dark pixel count or dark contours area (decrease "holes" or dark zones in papyrus)
 
+## Workflow
+
+![workflow](images/segmata_workflow.jpg)
+
 ## Installation
 
-No installation required.
-Only use python file
+Required installation: Khartes and vesuvius-render
 
 ## Usage
 
