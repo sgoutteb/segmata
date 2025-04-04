@@ -1,9 +1,13 @@
 # Segmata
 ------------------------
 This software is in link with Vesuvius project [scrollprize.org](https://scrollprize.org/).
+
 Segmata is a program that allows users to optimize segmentation from Khartes, https://github.com/KhartesViewer/khartes.
+
 For rendering layers it uses: vesuvius-render from https://github.com/jrudolph/vesuvius-gui
+
 It is written in Python.
+
 
 The main emphasis of Segmata is to automatically perform modifications on .obj file in order to improve the segmentation in terms of:
 - Visual rendering of layers
