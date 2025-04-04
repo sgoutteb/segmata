@@ -50,6 +50,13 @@ Result at third pass:
 A log file is created in order to follow the optimization steps, hereafter are the results:
 ![segmata_log file](example/segmata_log.txt)
 
+## Limits
+
+The method used implies that rendering must be the same size before and after a vertex modification.
+Is not the comparison will be false.
+This point is not too restrictive because we change only one vertex at a time.
+
+
 ## Installation
 
 Required installation: Khartes and vesuvius-render
