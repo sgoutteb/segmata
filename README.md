@@ -18,6 +18,20 @@ The cost function for deciding is the modified point is better can be based on:
 
 ![workflow](images/segmata_workflow.jpg)
 
+
+## Example
+1. Create a simple fragment in Khartes
+![khartes](imageskhartes_view.jpg)
+![origin_image](32.jpg_originale.jpg)
+2. Launch segmata
+Result at first pass:
+![first pass result](32.jpg_pass1.jpg)
+Result at second pass:
+![first pass result](32.jpg_pass2.jpg)
+Result at third pass:
+![first pass result](32.jpg_pass3.jpg)
+
+
 ## Installation
 
 Required installation: Khartes and vesuvius-render
