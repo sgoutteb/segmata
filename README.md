@@ -28,24 +28,11 @@ See example for files.
 
 ![khartes](example/khartes_view.jpg)
 
-
-Original image using vesuvius_render:
-
-
 2. Launch segmata
-   
+
+Result pass after pass:
+
 ![process](example/segment_test_improvment.gif)
-Result at first pass:
-
-![first pass result](example/32.jpg_pass1.jpg)
-
-Result at second pass:
-
-![first pass result](example/32.jpg_pass2.jpg)
-
-Result at third pass:
-
-![first pass result](example/32.jpg_pass3.jpg)
 
 A log file is created in order to follow the optimization steps, hereafter are the results:
 [segmata_log file](example/segmata_log.txt)
