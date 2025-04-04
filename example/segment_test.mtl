@@ -1,0 +1,7 @@
+newmtl default
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.0 0.0 0.0
+map_Kd segment_test.png
+illum 2
+d 1.0

@@ -1,0 +1,10 @@
+{
+    "segment_test": {
+        "name": "segment_test",
+        "area_sq_cm": 0.014024077127939894,
+        "n_vrts": 74,
+        "n_trgls": 131,
+        "st_width": 197.31800898625823,
+        "st_height": 176.77491574629812
+    }
+}
