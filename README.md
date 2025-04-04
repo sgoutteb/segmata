@@ -48,7 +48,7 @@ Result at third pass:
 ![first pass result](example/32.jpg_pass3.jpg)
 
 A log file is created in order to follow the optimization steps, hereafter are the results:
-![log_file](example/segmata_log.txt)
+![segmata_log file](example/segmata_log.txt)
 
 ## Installation
 
