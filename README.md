@@ -21,15 +21,15 @@ The cost function for deciding is the modified point is better can be based on:
 
 ## Example
 1. Create a simple fragment in Khartes
-![khartes](imageskhartes_view.jpg)
-![origin_image](32.jpg_originale.jpg)
+![khartes](images/khartes_view.jpg)
+![origin_image](images/32.jpg_originale.jpg)
 2. Launch segmata
 Result at first pass:
-![first pass result](32.jpg_pass1.jpg)
+![first pass result](images/32.jpg_pass1.jpg)
 Result at second pass:
-![first pass result](32.jpg_pass2.jpg)
+![first pass result](images/32.jpg_pass2.jpg)
 Result at third pass:
-![first pass result](32.jpg_pass3.jpg)
+![first pass result](images/32.jpg_pass3.jpg)
 
 
 ## Installation
