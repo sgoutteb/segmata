@@ -31,10 +31,10 @@ See example for files.
 
 Original image using vesuvius_render:
 
-![origin_image](example/32.jpg_originale.jpg)
 
 2. Launch segmata
-
+   
+![process](example/segment_test_improvment.gif)
 Result at first pass:
 
 ![first pass result](example/32.jpg_pass1.jpg)
