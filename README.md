@@ -14,10 +14,13 @@ The main emphasis of Segmata is to automatically perform modifications on .obj f
 - Inference result on segment (in a future step)
 
 The .obj modifications are done on individual vertex displacements along normals (loop over all vertex). This displacement is limited to 2 pixels (adjustable).
-Several loops are possible.
+
+Several passes are possible.
+
 The cost function for deciding is the modified point is better can be based on:
 - Maximize bright pixels count (the papyrus layer is brighter than "holes")
 - Minimize dark pixel count or dark contours area (decrease "holes" or dark zones in papyrus)
+
 Tha actual version uses:
 - Difference with previous image if np.mean(image_diff)>0 we keep the changes
 
@@ -28,6 +31,7 @@ Tha actual version uses:
 
 ## Example
 1. Create a simple fragment in Khartes
+
 See example for files.
 
 ![khartes](example/khartes_view.jpg)
@@ -45,12 +49,15 @@ A log file is created in order to follow the optimization steps, hereafter are t
 
 The method used implies that rendering must be the same size before and after a vertex modification.
 Is not the comparison will be false.
+
 This point is not too restrictive because we change only one vertex at a time.
 
 
 ## Installation
 
-Required installation: Khartes and vesuvius-render
+Required installation:
+- Khartes
+- vesuvius-render
 
 ## Usage
 See [code file](code/optimizer_4.py)
