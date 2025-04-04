@@ -98,5 +98,7 @@ display_result(output_image_path,image_reference)
 ```
 
 Adjusting the parameters
+
 "--width", "xxx", "--height", "xxx", must be adjusted as per info in json file (exported from Khartes), at least proportional to.
+
 "-v", "20241024131838", must be adjusted accordingly to scroll volume (the example is for Scroll5 PHerc172)
