@@ -9,10 +9,13 @@ The main emphasis of Segmata is to automatically perform modifications on .obj f
 - Visual rendering of layers
 - Inference result on segment (in a future step)
 
-The .obj modifications are done on individual vertex displacements along normals (loop over all vertex). This displacement is limited to XX pixels.
+The .obj modifications are done on individual vertex displacements along normals (loop over all vertex). This displacement is limited to 2 pixels (adjustable).
+Several loops are possible.
 The cost function for deciding is the modified point is better can be based on:
 - Maximize bright pixels count (the papyrus layer is brighter than "holes")
 - Minimize dark pixel count or dark contours area (decrease "holes" or dark zones in papyrus)
+Tha actual version uses:
+- Difference with previous image if np.mean(image_diff)>0 we keep the changes
 
 ## Workflow
 
@@ -21,16 +24,31 @@ The cost function for deciding is the modified point is better can be based on:
 
 ## Example
 1. Create a simple fragment in Khartes
-![khartes](images/khartes_view.jpg)
-![origin_image](images/32.jpg_originale.jpg)
-2. Launch segmata
-Result at first pass:
-![first pass result](images/32.jpg_pass1.jpg)
-Result at second pass:
-![first pass result](images/32.jpg_pass2.jpg)
-Result at third pass:
-![first pass result](images/32.jpg_pass3.jpg)
+See example for files.
 
+![khartes](example/khartes_view.jpg)
+
+
+Original image using vesuvius_render:
+
+![origin_image](example/32.jpg_originale.jpg)
+
+2. Launch segmata
+
+Result at first pass:
+
+![first pass result](example/32.jpg_pass1.jpg)
+
+Result at second pass:
+
+![first pass result](example/32.jpg_pass2.jpg)
+
+Result at third pass:
+
+![first pass result](example/32.jpg_pass3.jpg)
+
+A log file is created in order to follow the optimization steps, hereafter are the results:
+![log_file](example/segmata_log.txt)
 
 ## Installation
 
