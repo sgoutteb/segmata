@@ -48,7 +48,7 @@ Result at third pass:
 ![first pass result](example/32.jpg_pass3.jpg)
 
 A log file is created in order to follow the optimization steps, hereafter are the results:
-![segmata_log file](example/segmata_log.txt)
+[segmata_log file](example/segmata_log.txt)
 
 ## Limits
 
@@ -62,8 +62,38 @@ This point is not too restrictive because we change only one vertex at a time.
 Required installation: Khartes and vesuvius-render
 
 ## Usage
-
+See [code file](code/optimizer_4.py)
 ```
-segmata
+# Exemple d'utilisation
+obj_file_path = "C:\\Vesuvius\\segment_test\\"
+obj_filename = "segment_test.obj"
+renderer_path = r"C:\\Vesuvius\\vesuvius-render-v34-x86_64-pc-windows-msvc.exe"
+output_image_path = r"C:\\Vesuvius\\segment_test\\32.jpg"
+image_reference = r"C:\\Vesuvius\\segment_test\\32.jpg_ref.jpg"
+log_path = os.path.join(obj_file_path, "segmata_log.txt")
+if os.path.exists(log_path):
+    os.remove(log_path)
+
+render_arguments = [
+    "--obj", os.path.join(obj_file_path, "temp_" + obj_filename),
+    "--width", "593",
+    "--height", "527",
+    "--target-dir", obj_file_path,
+    "-v", "20241024131838",
+    "--min-layer", "32",
+    "--max-layer", "32",
+    "--target-format", "jpg",
+    "--data-directory", "C:\\Vesuvius"
+]
+
+log_print(log_path,"****************************")
+log_print(log_path,"  OPTIMIZATION START")
+log_print(log_path,"****************************")
+for pass_number in range(3):
+    log_print(log_path,f"PASS {pass_number+1}")
+    segmata(log_path,obj_file_path, obj_filename, renderer_path, render_arguments, output_image_path, image_reference, 2,pass_number)
+    log_print(log_path,"****************************")
+
+display_result(output_image_path,image_reference)
 ```
 
