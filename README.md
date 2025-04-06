@@ -140,5 +140,6 @@ Adjusting the parameters
   - work one vertex out of x instead of all
 - **Automatic detection of width and height**
   - Reading json file exported by Khartes
-- **Add user interface for choosing folders and files**
+
 - **Implementation of inference**
+- **Add user interface for choosing folders and files**
