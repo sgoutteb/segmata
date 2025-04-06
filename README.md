@@ -49,6 +49,8 @@ A log file is created in order to follow the optimization steps, hereafter are t
 
 ![import_results](example/import_result_khartes.jpg)
 
+Difference between red and blue line is cleary visible !
+
 ## Limits
 
 The method used implies that rendering must be the same size before and after a vertex modification.
