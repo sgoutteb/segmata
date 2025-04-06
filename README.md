@@ -68,7 +68,7 @@ Required installation:
 - Seems to have some issues with subprocess.run command when using an environment like Spyder (working on Thonny, IDLE Python,...)
 
 ## Usage
-See [code file](code/optimizer_4.py)
+See [code file](code/optimization_20241207134906.py)
 ```
 #----------------------------------------------
 # Segmata
