@@ -45,6 +45,10 @@ Result pass after pass:
 A log file is created in order to follow the optimization steps, hereafter are the results:
 [segmata_log file](example/segmata_log.txt)
 
+3. Import the new created obj file and compare the difference using Khartes.
+
+![import_results](example/import_result_khartes.jpg)
+
 ## Limits
 
 The method used implies that rendering must be the same size before and after a vertex modification.
@@ -58,6 +62,8 @@ This point is not too restrictive because we change only one vertex at a time.
 Required installation:
 - Khartes
 - vesuvius-render
+
+- Seems to have some issues with subprocess.run command when using an environment like Spyder (working on Thonny, IDLE Python,...)
 
 ## Usage
 See [code file](code/optimizer_4.py)
