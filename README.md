@@ -49,7 +49,9 @@ A log file is created in order to follow the optimization steps, hereafter are t
 
 ![import_results](example/import_result_khartes.jpg)
 
-Difference between red and blue line is cleary visible !
+Difference between red (optimized version) and blue (original file) line is cleary visible !
+
+The red line is following the papyrus sheet closer. 
 
 ## Limits
 
