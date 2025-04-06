@@ -1,4 +1,4 @@
-# Segmata
+# Segmata - it's like uncrease a papyrus sheet...
 ------------------------
 This software is in link with Vesuvius project [scrollprize.org](https://scrollprize.org/).
 
