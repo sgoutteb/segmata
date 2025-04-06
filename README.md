@@ -29,7 +29,7 @@ Tha actual version uses:
 ![workflow](images/segmata_workflow.jpg)
 
 
-## Example
+## Example on a small segment (only 74 vertex)
 1. Create a simple fragment in Khartes
 
 See example for files.
@@ -52,6 +52,16 @@ A log file is created in order to follow the optimization steps, hereafter are t
 Difference between red (optimized version) and blue (original file) line is cleary visible !
 
 The red line is following the papyrus sheet closer. 
+
+
+## Example on bigger segment 20241207134906 (4119 vertex)
+Area= 0.75cm²
+
+Optimization result:
+
+![](example/20241207134906_comparaison.png)
+
+
 
 ## Limits
 
