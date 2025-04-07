@@ -147,7 +147,8 @@ Adjusting the parameters
 ## Further developments
 
 - **Improve speed of treatment**
-- - work in memory, but how to deal with vesuvius-render ?
+  - work in memory, but how to deal with vesuvius-render ?
+  - try villa//scroll-renderer/
   - work one vertex out of x instead of all
 - **Automatic detection of width and height**
   - Reading json file exported by Khartes
