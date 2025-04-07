@@ -28,6 +28,10 @@ Tha actual version uses:
 
 ![workflow](images/segmata_workflow.jpg)
 
+INPUT: .obj file (exported from Khartes)
+
+OUTPUT: .obj file (optimized)
+
 
 ## Example on a small segment (only 74 vertex)
 1. Create a simple fragment in Khartes
