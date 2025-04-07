@@ -58,12 +58,19 @@ Difference between red (optimized version) and blue (original file) line is clea
 The red line is following the papyrus sheet closer. 
 
 
-## Example on bigger segment 20241207134906 (4119 vertex)
+## Example 2 on bigger segment 20241207134906 (4119 vertex)
 Area= 0.75cm²
 
 Optimization result:
 
-![](example/20241207134906_comparaison.png)
+![/20241207134906](example/20241207134906_comparaison.png)
+
+## Example 3 on segment 20241108120730 (official segment)
+Area= 3.2cm²
+
+Optimization result:
+
+![20241108120730](example/20241108120730_comparaison)
 
 
 
