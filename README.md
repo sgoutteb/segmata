@@ -70,7 +70,7 @@ Area= 3.2cm²
 
 Optimization result:
 
-![20241108120730](example/20241108120730_comparaison)
+![20241108120730](example/20241108120730_comparaison.png)
 
 
 
