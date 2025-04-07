@@ -72,7 +72,7 @@ Optimization result:
 
 ![20241108120730](example/20241108120730_comparaison.png)
 
-
+See how "holes" are well eliminated and filled with papyrus sheet.
 
 ## Limits
 
