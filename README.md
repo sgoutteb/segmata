@@ -24,6 +24,10 @@ The cost function for deciding is the modified point is better can be based on:
 Tha actual version uses:
 - Difference with previous image if np.mean(image_diff)>0 we keep the changes
 
+In a second step you can render more layers and apply a composite filter to several layers.
+This can improve the ink detection/labelling thanks to a better visualization of papyrus surface.
+
+
 ## Workflow
 
 ![workflow](images/segmata_workflow.jpg)
@@ -69,10 +73,11 @@ Optimization result:
 Area= 3.2cm²
 
 Optimization result:
-
 ![20241108120730](example/20241108120730_comparaison.png)
-
 See how "holes" are well eliminated and filled with papyrus sheet.
+
+But also how ink is appearing more clearly.
+![](example/20241108120730_ink.jpg)
 
 ## Limits
 
