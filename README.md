@@ -151,6 +151,10 @@ Adjusting the parameters
 
 ## Further developments
 
+- **Integrate this development into Khartes (on-going...)**
+  - it will improve treatment speed
+  - interactivly view the results
+  
 - **Improve speed of treatment**
   - work in memory, but how to deal with vesuvius-render ?
   - try villa//scroll-renderer/
