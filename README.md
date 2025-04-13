@@ -148,12 +148,24 @@ Adjusting the parameters
 
 "-v", "20241024131838", must be adjusted accordingly to scroll volume (the example is for Scroll5 PHerc172)
 
+ ## Khartes integration 
+
+ ![khartes integration](example/χάρτης - khartes_projet_segmata.mp4)
+ <video width=960" height="504" controls>
+  <source src="example/χάρτης - khartes_projet_segmata.mp4" type="video/mp4">
+  Votre navigateur ne supporte pas la balise vidéo.
+</video>
+
+
+  - it improves treatment speed
+  - interactivly view the results
+
+
+
 
 ## Further developments
 
-- **Integrate this development into Khartes (on-going...)**
-  - it will improve treatment speed
-  - interactivly view the results
+
   
 - **Improve speed of treatment**
   - work in memory, but how to deal with vesuvius-render ?
