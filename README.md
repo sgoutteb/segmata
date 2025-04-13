@@ -150,9 +150,9 @@ Adjusting the parameters
 
  ## Khartes integration 
 
- ![khartes integration](example/χάρτης - khartes_projet_segmata.mp4)
+ ![khartes integration](khartes_integration/χάρτης - khartes_projet_segmata.mp4)
  <video width=960" height="504" controls>
-  <source src="example/χάρτης - khartes_projet_segmata.mp4" type="video/mp4">
+  <source src="khartes_integration/χάρτης - khartes_projet_segmata.mp4" type="video/mp4">
   Votre navigateur ne supporte pas la balise vidéo.
 </video>
 
