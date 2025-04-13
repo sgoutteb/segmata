@@ -150,23 +150,14 @@ Adjusting the parameters
 
  ## Khartes integration 
 
- ![khartes integration](khartes_integration/χάρτης - khartes_projet_segmata.mp4)
- <video width=960" height="504" controls>
-  <source src="khartes_integration/χάρτης - khartes_projet_segmata.mp4" type="video/mp4">
-  Votre navigateur ne supporte pas la balise vidéo.
-</video>
-
-
   - it improves treatment speed
   - interactivly view the results
 
-
-
+Link to a demo video:
+ [demo khartes integration](https://github.com/sgoutteb/segmata/blob/b52449f4d5eeedb8fa6f8a44c7465e6736428bdf/khartes_integration/%CF%87%CE%AC%CF%81%CF%84%CE%B7%CF%82%20-%20khartes_projet_segmata.mp4)
 
 ## Further developments
 
-
-  
 - **Improve speed of treatment**
   - work in memory, but how to deal with vesuvius-render ?
   - try villa//scroll-renderer/
