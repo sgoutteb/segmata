@@ -6,7 +6,7 @@
 #
 # functions for segmata
 #
-# version 07.04.2025
+# version 16.04.2025
 # S.Gouttebroze
 #----------------------------------------------
 
@@ -19,6 +19,7 @@ import shutil
 import matplotlib.pyplot as plt
 from datetime import datetime
 import re
+import json
 
 def calc_diff(image1_path, image2_path, display=False):
     image1 = cv2.imread(image1_path, cv2.IMREAD_GRAYSCALE)
@@ -120,7 +121,7 @@ def display_result_vertex(vertex_number,vertex_disp):
     plt.show()
     
             
-def segmata(log_path,obj_file_path, obj_filename, render_exe, render_args, output_image, image_reference, distance,pass_number):
+def segmata_process(log_path,obj_file_path, obj_filename, render_exe, render_args, output_image, image_reference, distance,pass_number):
     vertex_number=[]
     vertex_disp=[]
     vertices, normals, faces, comments, others = load_obj(obj_file_path, obj_filename)
@@ -181,3 +182,68 @@ def segmata(log_path,obj_file_path, obj_filename, render_exe, render_args, outpu
     return [vertex_number,vertex_disp]
 
 
+def segmata(objfile,renderer_path,nbpass=3,display=False):
+    """
+    Exécute segmata pour traiter un fichier OBJ.
+
+    Args:
+        objfile (str): obj file path.
+        renderer_path (str): exe file for vesuvius_render.
+        nbpass (int): Total pass number. (default = 3)
+        display (bool): Display or not the output curve (default=False)
+
+    Returns:
+        None
+    """
+    if os.path.exists(objfile):
+        obj_file_path = os.path.dirname(objfile)
+        obj_filename = os.path.basename(objfile)
+        image_reference =os.path.join(obj_file_path,"32.jpg_ref.jpg")
+        output_image_path = os.path.join(obj_file_path,"32.jpg")
+        log_path = os.path.join(obj_file_path, "segmata_log.txt")
+        if os.path.exists(log_path): os.remove(log_path)
+
+        # Ouvrir et lire le fichier JSON
+        jsonfile=os.path.join(obj_file_path,obj_filename.replace(".obj",".json"))
+        with open(jsonfile, 'r') as file:
+            data = json.load(file)
+
+        # Récupérer les valeurs de st_width et st_height en utilisant la clé spécifiée
+        key_name = os.path.splitext(obj_filename)[0]
+        st_width = int(data[key_name]["st_width"])
+        st_height = int(data[key_name]["st_height"])
+
+
+
+
+        render_arguments = [
+            "--obj", os.path.join(obj_file_path, "temp_" + obj_filename),
+            "--width", str(st_width),
+            "--height", str(st_height),
+            "--target-dir", obj_file_path,
+            "-v", "20241024131838",
+            "--min-layer", "32",
+            "--max-layer", "32",
+            "--target-format", "jpg",
+            "--data-directory", "C:\\Vesuvius"]
+
+        log_print(log_path,"****************************")
+        log_print(log_path,"  OPTIMIZATION START")
+        log_print(log_path,f"  {obj_file_path} file: {obj_filename}")
+        log_print(log_path,f"  width: {st_width}, height: {st_height}")
+        log_print(log_path,"****************************")
+        for pass_number in range(nbpass):
+            log_print(log_path,f"PASS {pass_number+1}")
+            segmata_process(log_path,obj_file_path, obj_filename, renderer_path, render_arguments, output_image_path, image_reference, 2,pass_number)
+            log_print(log_path,"****************************")
+
+        if display==True:
+            display_result(output_image_path,image_reference)
+        log_print(log_path,"****************************")
+        log_print(log_path,"  OPTIMIZATION END")
+        log_print(log_path,"****************************")
+    else:
+        print("ERROR")
+        print(f"{objfile} does not exist...")
+        print("END")
+    
