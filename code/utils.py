@@ -235,7 +235,7 @@ def calculate_average_distance(points):
     return np.mean(distances[:, 1])  # On prend la colonne 1 car la colonne 0 est la distance à lui-même
 
 
-def select_points_with_distance_constraint_old(points, fraction, distance_threshold):
+def select_points_with_distance_constraint(points, fraction, distance_threshold):
     # Sélectionner aléatoirement  des points
     num_points_to_select = int(len(points) * fraction)
     selected_indices = np.random.choice(len(points), num_points_to_select, replace=False)
@@ -270,38 +270,7 @@ def select_points_with_distance_constraint_old(points, fraction, distance_thresh
     
     return np.array(filtered_indices)
 
-def select_points_with_distance_constraint(points, fraction, cell_width, cell_height):
-    # Sélectionner aléatoirement des points
-    num_points_to_select = int(len(points) * fraction)
-    selected_indices = np.random.choice(len(points), num_points_to_select, replace=False)
-    selected_points = points[selected_indices]
 
-    # Déterminer les limites de la grille
-    min_x, max_x = np.min(points[:, 0]), np.max(points[:, 0])
-    min_y, max_y = np.min(points[:, 1]), np.max(points[:, 1])
-
-    # Calculer le nombre de cellules dans chaque direction
-    num_cells_x = int((max_x - min_x) / cell_width) + 1
-    num_cells_y = int((max_y - min_y) / cell_height) + 1
-
-    # Créer une grille pour suivre les points dans chaque cellule
-    grid = {(i, j): [] for i in range(num_cells_x) for j in range(num_cells_y)}
-
-    # Ajouter les indices des points sélectionnés à la grille
-    for idx, point in zip(selected_indices, selected_points):
-        cell_x = int((point[0] - min_x) / cell_width)
-        cell_y = int((point[1] - min_y) / cell_height)
-        grid[(cell_x, cell_y)].append(idx)
-
-    # Filtrer les points pour éliminer ceux qui sont trop proches
-    filtered_indices = []
-    for cell, indices_in_cell in grid.items():
-        if indices_in_cell:
-            filtered_indices.append(indices_in_cell[0])  # Garde un seul point par cellule
-
-    return np.array(filtered_indices)
-
-            
 def segmata_process(log_path,obj_file_path, obj_filename, render_exe, render_args, output_image, image_reference, distance,pass_number):
     vertex_number=[]
     vertex_disp=[]
@@ -335,8 +304,7 @@ def segmata_process(log_path,obj_file_path, obj_filename, render_exe, render_arg
     cpt=0
 
 
-    selected_points = select_points_with_distance_constraint_old(points, fraction, distance_threshold)
-    #selected_points = select_points_with_distance_constraint(points, fraction, distancey,distancex)
+    selected_points = select_points_with_distance_constraint(points, fraction, distance_threshold)
     
     log_print(log_path,f"{len(selected_points)} Selected points / {len(points)} total.")
     for direction in [-1,1]:
@@ -445,14 +413,14 @@ def segmata_process(log_path,obj_file_path, obj_filename, render_exe, render_arg
     return vertex_number,vertex_disp,best_points_nb
 
 
-def segmata(objfile,renderer_path,nbpass=3,display=False):
+def segmata(objfile,renderer_path,nbpass=30,display=False):
     """
     Exécute segmata pour traiter un fichier OBJ.
 
     Args:
         objfile (str): obj file path.
         renderer_path (str): exe file for vesuvius_render.
-        nbpass (int): Total pass number. (default = 3)
+        nbpass (int): Total pass number. (default = 30)
         display (bool): Display or not the output curve (default=False)
 
     Returns:
