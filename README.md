@@ -3,6 +3,7 @@
 This software is in link with Vesuvius project [scrollprize.org](https://scrollprize.org/).
 
 Segmata is a program that allows users to optimize segmentation from Khartes, https://github.com/KhartesViewer/khartes.
+It is mandatory to install the segmata branch from https://github.com/sgoutteb/khartes_segmata.git
 
 For rendering layers it uses: vesuvius-render from https://github.com/jrudolph/vesuvius-gui
 
@@ -107,7 +108,7 @@ See [code file](code/optimization_20241207134906.py)
 #
 # main function
 #
-# version 16.04.2025
+# version 17.04.2025
 # S.Gouttebroze
 #----------------------------------------------
 
@@ -120,10 +121,23 @@ import utils
 objfile=r"C:\\Vesuvius\\20241207134906\\20241207134906.obj"
 renderer_path = r"C:\\Vesuvius\\vesuvius-render-v34-x86_64-pc-windows-msvc.exe"
 
-utils.segmata(objfile,renderer_path,3,True)
+utils.segmata(objfile,renderer_path,30,True)
 ```
 
+The script needs a new specific file which is created by the segmata branch of Khartes.
+
+This file is points.csv will be created when refining segment in Khartes and saved in the main Khartes directory, it has to be copied after on the specific directory where obj file is exported.
+
 No parameters adjustments are needed.
+
+Except that the script is working on my environment (windows) and you have probably to change directories names.
+
+Especially the temp dir  line 492 of utils.py
+```
+            "--data-directory", "F:\\Vesuvius"]
+```        
+
+
 The script is valid only for Scroll5, if you want to change
 "-v", "20241024131838", must be adjusted accordingly to scroll volume (the example is for Scroll5 PHerc172)
 
@@ -141,9 +155,9 @@ Link to a demo video:
 - **Improve speed of treatment**
   - work in memory, but how to deal with vesuvius-render ?
   - try villa//scroll-renderer/
-  - work one vertex out of x instead of all
+  - work one vertex out of x instead of all   --> done but in another way
 - **Automatic detection of width and height**
-  - Reading json file exported by Khartes
+  - Reading json file exported by Khartes  --> done.
 
 - **Implementation of inference**
 - **Add user interface for choosing folders and files**

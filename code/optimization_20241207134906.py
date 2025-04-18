@@ -19,5 +19,5 @@ import utils
 objfile=r"C:\\Vesuvius\\20241207134906\\20241207134906.obj"
 renderer_path = r"C:\\Vesuvius\\vesuvius-render-v34-x86_64-pc-windows-msvc.exe"
 
-utils.segmata(objfile,renderer_path,3,True)
+utils.segmata(objfile,renderer_path,30,True)
 
