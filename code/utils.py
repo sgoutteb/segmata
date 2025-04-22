@@ -6,6 +6,7 @@
 #
 # functions for segmata
 # Major improvement in speed
+# Add stats for moved points
 #
 # version 22.04.2025
 # S.Gouttebroze
@@ -137,6 +138,49 @@ def display_result_vertex(vertex_number,vertex_disp,obj_file_path):
     plt.grid(True)
     plt.tight_layout()
     plt.show()
+    
+    # Dictionnaire pour accumuler les valeurs par indice
+    accumulated_values = {}
+
+    # Parcourir les listes et accumuler les valeurs
+    for indice, valeur in zip(vertex_number, vertex_disp):
+        if indice in accumulated_values:
+            accumulated_values[indice] += valeur
+        else:
+            accumulated_values[indice] = valeur
+
+    # Convertir le dictionnaire en listes d'indices uniques et de valeurs cumulÃ©es
+    unique_indices = list(accumulated_values.keys())
+    cumulated_values = list(accumulated_values.values())
+
+    # Trier les indices et les valeurs cumulÃ©es pour un traÃ§age correct
+    unique_indices, cumulated_values = zip(*sorted(zip(unique_indices, cumulated_values)))
+
+    # Tracer les valeurs cumulÃ©es en fonction des indices uniques
+    plt.figure(figsize=(10, 6))
+    plt.plot(unique_indices, cumulated_values, marker='o', linestyle='-')
+    plt.xlabel('Vertex')
+    plt.ylabel('Cumulated displacement (px)')
+    plt.grid(True)
+    plt.show()
+    
+    
+    # Calcul des statistiques
+    stats = {
+        'mean': np.mean(cumulated_values),
+        'median': np.median(cumulated_values),
+        'sigma': np.std(cumulated_values),
+        'minimum': np.min(cumulated_values),
+        'maximum': np.max(cumulated_values),
+        '1st_quartile': np.percentile(cumulated_values, 25),
+        '3rd_quartile': np.percentile(cumulated_values, 75),
+        'range': np.max(cumulated_values) - np.min(cumulated_values),
+        'mean_abs': np.mean(np.abs(cumulated_values)),
+        'median_abs': np.median(np.abs(cumulated_values)),
+        'sigma_abs': np.std(np.abs(cumulated_values)),
+    }
+    
+    
     # Charger le fichier CSV
     file_path = os.path.join(obj_file_path, 'points.csv')
     points = np.loadtxt(file_path, delimiter=',', skiprows=1)  # skiprows=1 pour ignorer l'en-tête
@@ -147,6 +191,9 @@ def display_result_vertex(vertex_number,vertex_disp,obj_file_path):
         #print(f"x,y = {int(image.shape[1]*x)},{int(image.shape[0]*y)}")
         cv2.circle(image, (int(image.shape[0]*x),int(image.shape[1]*y)), radius=5, color=(0, 0, 255), thickness=-1)
     cv2.imwrite(os.path.join(obj_file_path,"moved_points.jpg"), image)
+    
+    
+    return stats
     
 
 
@@ -477,9 +524,10 @@ def segmata(objfile,renderer_path,nbpass=30,display=False):
             vertex_disp= [item for sublist in vertex_disp for item in sublist]
             display_result_best_points_number(bp_tab)
             display_result(output_image_path,image_reference)
-            display_result_vertex(vertex_number,vertex_disp,obj_file_path)
+            stats=display_result_vertex(vertex_number,vertex_disp,obj_file_path)
         log_print(log_path,"****************************")
         log_print(log_path,f"vertex moved {len(vertex_number)} ")
+        log_print(log_path,stats)
         log_print(log_path," ")
         log_print(log_path,"  OPTIMIZATION END")
         log_print(log_path,"****************************")
