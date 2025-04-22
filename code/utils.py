@@ -7,7 +7,7 @@
 # functions for segmata
 # Major improvement in speed
 #
-# version 17.04.2025
+# version 22.04.2025
 # S.Gouttebroze
 #----------------------------------------------
 
@@ -145,7 +145,7 @@ def display_result_vertex(vertex_number,vertex_disp,obj_file_path):
     pts=points[vertex_number,0:2]
     for (x, y) in pts:
         #print(f"x,y = {int(image.shape[1]*x)},{int(image.shape[0]*y)}")
-        cv2.circle(image, (int(image.shape[1]*x),int(image.shape[0]*y)), radius=5, color=(0, 0, 255), thickness=-1)
+        cv2.circle(image, (int(image.shape[0]*x),int(image.shape[1]*y)), radius=5, color=(0, 0, 255), thickness=-1)
     cv2.imwrite(os.path.join(obj_file_path,"moved_points.jpg"), image)
     
 
